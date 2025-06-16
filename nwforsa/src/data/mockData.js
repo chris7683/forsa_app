@@ -1,14 +1,125 @@
-export const mockUser = {
-  id: '1',
-  name: 'John Doe',
-  email: 'john@example.com',
-  phone: '+1234567890',
-  cardNumber: '4111 1111 1111 1111',
-  cardStatus: 'active',
-  balance: 5000,
-  bnplLimit: 10000,
-  bnplUsed: 2000,
+export const mockTerminationReasons = [
+  {
+    id: '1',
+    reason: 'Lost or stolen card',
+    description: 'I have lost my card or it has been stolen',
+  },
+  {
+    id: '2',
+    reason: 'Damaged card',
+    description: 'My card is damaged and no longer usable',
+  },
+  {
+    id: '3',
+    reason: 'No longer needed',
+    description: 'I no longer need this card',
+  },
+  {
+    id: '4',
+    reason: 'Switching to different card',
+    description: 'I want to switch to a different card type',
+  },
+  {
+    id: '5',
+    reason: 'Other',
+    description: 'Other reason not listed above',
+  },
+];
+
+export const mockFAQCategories = [
+  'All',
+  'General Questions',
+  'Card Usage',
+  'Security',
+  'Fees & Charges',
+  'Technical Support'
+];
+
+export const mockTransactionCategories = [
+  'All',
+  'Debits',
+  'Credits',
+  'Pending'
+];
+
+export const mockAmountData = {
+  maximumAmount: 34250,
+  quickSelectAmounts: [
+    { value: 2000, label: '2,000 EGP' },
+    { value: 3000, label: '3,000 EGP' },
+    { value: 5000, label: '5,000 EGP' },
+    { value: 7000, label: '7,000 EGP' },
+    { value: 10000, label: '10,000 EGP' },
+    { value: 15000, label: '15,000 EGP' }
+  ]
 };
+
+export const mockInstallmentPlans = [
+  {
+    id: 'plan1',
+    months: 3,
+    interestRate: 1.5,
+    monthlyPayment: 1200,
+    description: '3 months, low interest',
+  },
+  {
+    id: 'plan2',
+    months: 6,
+    interestRate: 2.5,
+    monthlyPayment: 650,
+    description: '6 months, moderate interest',
+  },
+  {
+    id: 'plan3',
+    months: 9,
+    interestRate: 3.0,
+    monthlyPayment: 350,
+    description: '9 months, best for small payments',
+  },
+  {
+    id: 'plan4',
+    months: 12,
+    interestRate: 4.0,
+    monthlyPayment: 350,
+    description: '12 months, best for small payments',
+  },
+];
+
+export const mockCards = [
+  {
+    id: 'card1',
+    cardNumber: '4111 1111 1111 1111',
+    cardType: 'Visa',
+    cardStatus: 'active',
+    cardHolder: 'John Doe',
+    expiry: '12/26',
+    balance: 5000,
+    currency: 'EGP',
+    isPrimary: true,
+  },
+  {
+    id: 'card2',
+    cardNumber: '5500 0000 0000 0004',
+    cardType: 'Mastercard',
+    cardStatus: 'locked',
+    cardHolder: 'Jane Smith',
+    expiry: '09/25',
+    balance: 1200,
+    currency: 'EGP',
+    isPrimary: false,
+  },
+  {
+    id: 'card3',
+    cardNumber: '3400 0000 0000 009',
+    cardType: 'Amex',
+    cardStatus: 'inactive',
+    cardHolder: 'Ali Hassan',
+    expiry: '03/27',
+    balance: 0,
+    currency: 'EGP',
+    isPrimary: false,
+  },
+];
 
 export const mockTransactions = [
   {
@@ -111,46 +222,192 @@ export const mockTransactions = [
     fees: '5.00 EGP',
     balanceAfter: '16,294.50 EGP',
   },
+  // More random transactions
+  {
+    id: '6',
+    type: 'purchase',
+    amount: '-320.00',
+    currency: 'EGP',
+    merchant: 'Carrefour',
+    description: 'Groceries',
+    category: 'Groceries',
+    date: '10 Mar',
+    time: '06:20 PM',
+    status: 'Completed',
+    icon: 'shoppingcart',
+    location: 'Mall',
+    transactionId: 'TRN006',
+    referenceNumber: 'REF006',
+    authorizationCode: 'AUTH006',
+    previewDescription: 'Weekly grocery shopping.',
+    fees: '0.00 EGP',
+    balanceAfter: '15,974.50 EGP',
+  },
+  {
+    id: '7',
+    type: 'deposit',
+    amount: '+500.00',
+    currency: 'EGP',
+    merchant: 'Bank Transfer',
+    description: 'Gift',
+    category: 'Deposit',
+    date: '09 Mar',
+    time: '01:00 PM',
+    status: 'Completed',
+    icon: 'bank',
+    location: 'Bank',
+    transactionId: 'TRN007',
+    referenceNumber: 'REF007',
+    authorizationCode: 'AUTH007',
+    previewDescription: 'Gift from family.',
+    fees: '0.00 EGP',
+    balanceAfter: '16,474.50 EGP',
+  },
+  {
+    id: '8',
+    type: 'purchase',
+    amount: '-60.00',
+    currency: 'EGP',
+    merchant: 'Uber',
+    description: 'Ride to work',
+    category: 'Transport',
+    date: '08 Mar',
+    time: '08:30 AM',
+    status: 'Completed',
+    icon: 'car',
+    location: 'Cairo',
+    transactionId: 'TRN008',
+    referenceNumber: 'REF008',
+    authorizationCode: 'AUTH008',
+    previewDescription: 'Morning commute.',
+    fees: '0.00 EGP',
+    balanceAfter: '16,414.50 EGP',
+  },
+  {
+    id: '9',
+    type: 'purchase',
+    amount: '-45.00',
+    currency: 'EGP',
+    merchant: 'KFC',
+    description: 'Lunch',
+    category: 'Food & Beverage',
+    date: '07 Mar',
+    time: '12:45 PM',
+    status: 'Completed',
+    icon: 'rest',
+    location: 'Downtown',
+    transactionId: 'TRN009',
+    referenceNumber: 'REF009',
+    authorizationCode: 'AUTH009',
+    previewDescription: 'Lunch with friends.',
+    fees: '0.00 EGP',
+    balanceAfter: '16,369.50 EGP',
+  },
+  {
+    id: '10',
+    type: 'purchase',
+    amount: '-120.00',
+    currency: 'EGP',
+    merchant: 'Decathlon',
+    description: 'Sportswear',
+    category: 'Shopping',
+    date: '06 Mar',
+    time: '04:10 PM',
+    status: 'Completed',
+    icon: 'shopping',
+    location: 'Mall',
+    transactionId: 'TRN010',
+    referenceNumber: 'REF010',
+    authorizationCode: 'AUTH010',
+    previewDescription: 'Bought new running shoes.',
+    fees: '0.00 EGP',
+    balanceAfter: '16,249.50 EGP',
+  },
 ];
+
+export const mockUser = {
+  id: '1',
+  name: 'John Doe',
+  email: 'john@example.com',
+  phone: '+1234567890',
+  cardNumber: '4111 1111 1111 1111',
+  cardStatus: 'active',
+  balance: 5000,
+  bnplLimit: 10000,
+  bnplUsed: 2000,
+};
 
 export const mockFAQs = [
   {
-    id: 1,
-    question: 'What is Forsa prepaid card?',
-    category: 'General Questions',
-    answer: 'Forsa prepaid card is a reloadable card that can be used for online and in-store purchases.',
-  },
-  {
-    id: 2,
-    question: 'How do I activate my card?',
-    category: 'General Questions',
-    answer: 'You can activate your card through the Forsa app by going to Card Services > Card Activation. You\'ll need to verify your identity with OTP and create a PIN.',
-  },
-  {
-    id: 3,
-    question: 'How do I load money to my card?',
-    category: 'Card Usage',
-    answer: 'You can load money to your card through various channels such as online banking, Fawry outlets, or Forsa branches.',
-  },
-];
-
-export const mockInstallmentPlans = [
-  {
     id: '1',
-    months: 3,
-    interestRate: 0,
-    monthlyPayment: 333.33,
+    category: 'General Questions',
+    question: 'What is Forsa?',
+    answer: 'Forsa is a digital banking platform that provides you with a range of financial services including digital cards, BNPL (Buy Now Pay Later) options, and secure payment solutions. Our platform is designed to make financial management easier and more accessible.'
   },
   {
     id: '2',
-    months: 6,
-    interestRate: 2.5,
-    monthlyPayment: 171.25,
+    category: 'General Questions',
+    question: 'How do I get started with Forsa?',
+    answer: 'To get started with Forsa, simply download our app, sign up for an account, and complete the verification process. Once verified, you can apply for a digital card and start using our services.'
   },
   {
     id: '3',
-    months: 12,
-    interestRate: 5,
-    monthlyPayment: 87.50,
+    category: 'Card Usage',
+    question: 'How do I activate my digital card?',
+    answer: 'To activate your digital card, go to the Cards section in the app, select your card, and follow the activation process. You will need to verify your identity and set up a PIN for your card.'
   },
+  {
+    id: '4',
+    category: 'Card Usage',
+    question: 'What should I do if my card is lost or stolen?',
+    answer: 'If your card is lost or stolen, immediately lock your card through the app or contact our customer support. We will help you block the card and issue a replacement.'
+  },
+  {
+    id: '5',
+    category: 'Security',
+    question: 'How secure is my Forsa account?',
+    answer: 'Your Forsa account is protected by multiple layers of security including biometric authentication, PIN protection, and real-time transaction monitoring. We use industry-standard encryption to protect your data.'
+  },
+  {
+    id: '6',
+    category: 'Security',
+    question: 'How can I change my card PIN?',
+    answer: 'You can change your card PIN through the app by going to Card Settings > Change PIN. You will need to enter your current PIN and then set a new one.'
+  },
+  {
+    id: '7',
+    category: 'Fees & Charges',
+    question: 'What are the fees for using my digital card?',
+    answer: 'Our digital card has no annual fee. You may be charged for ATM withdrawals, international transactions, and certain premium services. All fees are clearly displayed in the app before you make a transaction.'
+  },
+  {
+    id: '8',
+    category: 'Fees & Charges',
+    question: 'Are there any hidden charges?',
+    answer: 'No, there are no hidden charges. All fees and charges are transparently displayed in the app and in our terms and conditions. You can view all applicable fees in the Fees section of the app.'
+  },
+  {
+    id: '9',
+    category: 'Technical Support',
+    question: 'What should I do if a transaction fails?',
+    answer: 'If a transaction fails, first check your internet connection and ensure you have sufficient funds. If the problem persists, contact our customer support through the app or call our helpline.'
+  },
+  {
+    id: '10',
+    category: 'Technical Support',
+    question: 'How do I update the app?',
+    answer: 'You can update the app through your device\'s app store. We recommend keeping the app updated to access the latest features and security improvements.'
+  },
+  {
+    id: '11',
+    category: 'Card Usage',
+    question: 'Can I use my card internationally?',
+    answer: 'Yes, your Forsa digital card can be used internationally. However, international transactions may incur additional fees. You can view these fees in the app before making a transaction.'
+  },
+  {
+    id: '12',
+    category: 'Security',
+    question: 'How do I enable/disable online transactions?',
+    answer: 'You can manage your card\'s online transaction settings in the app under Card Settings > Security Settings. Here you can enable or disable online transactions as needed.'
+  }
 ]; 
