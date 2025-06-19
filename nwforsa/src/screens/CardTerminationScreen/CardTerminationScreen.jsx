@@ -5,11 +5,11 @@ import TerminationReasonSection from '../../components/TerminationReasonSection/
 import TerminationWarningSection from '../../components/TerminationWarningSection/TerminationWarningSection';
 import TerminationConfirmationSection from '../../components/TerminationConfirmationSection/TerminationConfirmationSection';
 import styles from './CardTerminationScreenStyles';
-import { terminateCard } from '../services/api';
-import { useApi } from '../hooks/useApi';
+import { terminateCard } from '../../services/api';
+import { useApi } from '../../hooks/useApi';
 import { AntDesign } from '@expo/vector-icons';
-import Header from '../components/Header';
-import { mockTerminationReasons } from '../../mockData';
+import Header from '../../components/Header/Header';
+import { mockTerminationReasons } from '../../data/mockData';
 
 const CardTerminationScreen = ({ navigation }) => {
   const [selectedReason, setSelectedReason] = useState(null);

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, ActivityIndicator, View, Text, TouchableOpacity } from 'react-native';
 import ChangePINHeader from '../../components/ChangePINHeader/ChangePINHeader';
-import StepIndicator from '../components/StepIndicator/StepIndicator';
+import StepIndicator from '../../components/StepIndicator/StepIndicator';
 import PINInputSection from '../../components/PINInputSection/PINInputSection';
 import styles from './ChangePINScreenStyles';
-import { changePIN } from '../services/api';
-import { useApi } from '../hooks/useApi';
+import { changePIN } from '../../services/api';
+import { useApi } from '../../hooks/useApi';
 import { AntDesign } from '@expo/vector-icons';
-import Header from '../components/Header';
+import Header from '../../components/Header/Header';
 
 const ChangePINScreen = ({ navigation }) => {
   const [newPIN, setNewPIN] = useState('');

@@ -10,7 +10,7 @@ import QuickActionsSection from '../../components/QuickActionsSection/QuickActio
 import CardServicesSection from '../../components/CardServicesSection/CardServicesSection';
 import BNPLLimitStatus from '../../components/BNPLLimitStatus/BNPLLimitStatus';
 import BNPLSummary from '../../components/BNPLSummary/BNPLSummary';
-import { mockCards } from '../../mockData';
+import { mockCards } from '../../data/mockData';
 
 const CardScreen = ({ navigation }) => {
   const [selectedCardId, setSelectedCardId] = useState('card1');

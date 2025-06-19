@@ -10,11 +10,11 @@ import {
 import TransactionsSearchFilter from '../../components/TransactionsSearchFilter/TransactionsSearchFilter';
 import BalanceExpensesCards from '../../components/BalanceExpensesCards/BalanceExpensesCards';
 import TransactionsList from '../../components/TransactionsList/TransactionsList';
-import { getTransactions } from '../services/api';
-import { useApi } from '../hooks/useApi';
+import { getTransactions } from '../../services/api';
+import { useApi } from '../../hooks/useApi';
 import Header from '../../components/Header/Header';
 import styles from './TransactionsScreenStyles';
-import { mockTransactions } from '../../mockData';
+import { mockTransactions } from '../../data/mockData';
 
 const TransactionsScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');

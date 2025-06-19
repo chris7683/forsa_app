@@ -5,8 +5,8 @@ import OTPScreenHeader from '../../components/OTPScreenHeader/OTPScreenHeader';
 import StepIndicator from '../../components/StepIndicator/StepIndicator';
 import VerifyIdentitySection from '../../components/VerifyIdentitySection/VerifyIdentitySection';
 import styles from './OTPScreenStyles';
-import Header from '../components/Header/Header';
-import { activateCard, handleApiError } from '../services/api';
+import Header from '../../components/Header/Header';
+import { activateCard, handleApiError } from '../../services/api';
 
 const OTPScreen = ({ navigation, route }) => {
   const [otp, setOtp] = useState('');

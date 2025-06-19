@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import SplashScreen from './src/screens/SplashScreen';
-import OnboardingScreen from './src/screens/OnboardingScreen';
-import LoginScreen from './src/screens/LoginScreen';
-import OTPScreen from './src/screens/OTPScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import CardScreen from './src/screens/CardScreen';
-import LockScreen from './src/screens/LockScreen';
-import ChangePINScreen from './src/screens/ChangePINScreen';
-import LoadMoneyScreen from './src/screens/LoadMoneyScreen';
-import TransactionsScreen from './src/screens/TransactionsScreen';
-import CardTerminationScreen from './src/screens/CardTerminationScreen';
-import FAQScreen from './src/screens/FAQScreen';
+import OnboardingScreen from './src/screens/OnboardingScreen/OnboardingScreen';
+import LoginScreen from './src/screens/LoginScreen/LoginScreen';
+import OTPScreen from './src/screens/OTPScreen/OTPScreen';
+import HomeScreen from './src/screens/HomeScreen/HomeScreen';
+import CardScreen from './src/screens/CardScreen/CardScreen';
+import LockScreen from './src/screens/LockScreen/LockScreen';
+import ChangePINScreen from './src/screens/ChangePINScreen/ChangePINScreen';
+import LoadMoneyScreen from './src/screens/LoadMoneyScreen/LoadMoneyScreen';
+import TransactionsScreen from './src/screens/TransactionsScreen/TransactionsScreen';
+import CardTerminationScreen from './src/screens/CardTerminationScreen/CardTerminationScreen';
+import FAQScreen from './src/screens/FAQScreen/FAQScreen';
 
 const Stack = createStackNavigator();
 
@@ -27,13 +26,14 @@ export default function App() {
   }, []);
 
   if (isLoading) {
-    return <SplashScreen />;
+    // Show a simple loading indicator instead of SplashScreen
+    return <></>;
   }
 
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Onboarding" screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="OTP" component={OTPScreen} />
